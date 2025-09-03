@@ -14,14 +14,39 @@ int main()
     float tax;
     float price_with_tax;
 
-    cout << "Enter first price: " << flush;
-    cin >> first_price;
-    cout << "Enter last price : " << flush;
-    cin >> last_price;
+
+    while (true) 
+    {
+        cout << "Enter first price: " << flush;
+        cin >> first_price;
+        if (first_price >= 0) break;
+        cerr << "First price must be at least zero SEK" << endl;
+    }
+
+    while (true) 
+    {
+        cout << "Enter last price : " << flush;
+        cin >> last_price;
+        if (last_price > first_price) break;
+        cerr << "Last price must be greater than first price" << endl;
+    }
+
+    while (true)
+    {
     cout << "Enter stride     : " << flush;
     cin >> stride;
-    cout << "Enter tax percent: " << flush;
-    cin >> tax_percent;
+        if (stride >= 0.01) break;
+        cerr << "Stride must be at least 0.01" << endl;
+    }
+
+    while (true) 
+    {
+        cout << "Enter tax percent: " << flush;
+        cin >> tax_percent;
+        if (tax_percent >= 0) break;
+        cerr << "Tax must be at least 0%" << endl;
+    }
+
 
     // Col width: 12 17 20
     // 49 char sep of -
